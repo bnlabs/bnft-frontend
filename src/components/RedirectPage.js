@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Navigate } from 'react-router-dom';
 
 const RedirectPage = () => 
 {
     const [accessToken, setToken] = useState(null); // probably shouldnt have access token in useState
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
+    console.log("code: "+ code);
     const data = {
         "client_id": "1040068504826675251",
         "client_secret": "z1ThNtfi9kO0zWVWCzm1PdDoNZjixNFr",
@@ -24,6 +26,7 @@ const RedirectPage = () =>
     })
     .then((response) => {
         setToken(response.data.access_token);
+        console.log("accesstoken: " + response.data.access_token);
         return response.data;
     })
     .catch((error) => {
@@ -38,13 +41,16 @@ const RedirectPage = () =>
         maxBodyLength: Infinity,
         url: 'https://discord.com/api/users/@me',
         headers: { 
-          'Authorization': Authorization, 
-          'Cookie': '__cfruid=b6157b92049cb77108b12daef6b23ca7fe9389cc-1682209650; __dcfduid=6c80db3e60c711ed9652dee85986634c; __sdcfduid=6c80db3e60c711ed9652dee85986634c06efe9956e08f75ca048cccec815fd73206d374181c64f32608bde90b544b417'
+          'Authorization': Authorization
         }
       };
     axios.request(config)
     .then((response) => {
         console.log(response.data);
+        localStorage.setItem("username", response.data.username);
+        localStorage.setItem("userId", response.data.id);
+        localStorage.setItem("avatar", response.data.avatar);
+
     })
     .catch((error) => {
         console.log(error);
@@ -52,7 +58,7 @@ const RedirectPage = () =>
 
   return (
     <>
-        <h4>Redirecting...</h4>
+        <Navigate replace to="/" />
     </>
   );
 }

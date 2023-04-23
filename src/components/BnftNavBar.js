@@ -27,7 +27,7 @@ const BnftNavBar = (user) => {
             </NavDropdown>
           </Nav>
           <Nav>
-            {user===null ? <Nav.Link >Welcome back {user.username}</Nav.Link> : 
+            {localStorage.username!==null ? <Nav.Link >Welcome back {localStorage.username}</Nav.Link> : 
               <Nav.Link href="http://127.0.0.1:5000/login">Login With Discord</Nav.Link>} 
           </Nav>
         </Navbar.Collapse>
