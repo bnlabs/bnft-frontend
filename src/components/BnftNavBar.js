@@ -7,7 +7,7 @@ const BnftNavBar = (user) => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="home">Bnft</Navbar.Brand>
+        <Navbar.Brand href="homegay">Bnft</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
