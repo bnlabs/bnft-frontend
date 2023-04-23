@@ -1,0 +1,39 @@
+name: Build
+
+on: 
+  push: 
+    branches:
+      - master
+
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  Build:
+    name: Build
+    runs-on: debian-latest
+    environment:
+      name: 'Master'
+    defaults:
+      run:
+        working-directory: .
+
+    steps:
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '16.x'
+    
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    
+    - name: Install Yarn
+      run: npm install --global yarn
+
+    - name: Intall dependencies
+      run: yarn install
+
+    - name: Build
+      run: yarn build
