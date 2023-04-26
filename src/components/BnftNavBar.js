@@ -2,8 +2,15 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useSelector } from 'react-redux/es/exports'; 
+import { useEffect } from 'react';
 
-const BnftNavBar = (user) => {
+const BnftNavBar = () => {
+  const { username } = useSelector((state) => state.user.username);
+
+  useEffect(() => {
+  }, [username]);
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -27,8 +34,8 @@ const BnftNavBar = (user) => {
             </NavDropdown>
           </Nav>
           <Nav>
-            {localStorage.username!==null ? <Nav.Link >Welcome back {localStorage.username}</Nav.Link> : 
-              <Nav.Link href="http://127.0.0.1:5000/login">Login With Discord</Nav.Link>} 
+            {username==="" ? <Nav.Link >Welcome back {username}</Nav.Link> : 
+              <Nav.Link href="https://discord.com/api/oauth2/authorize?client_id=1040068504826675251&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fredirect&response_type=code&scope=identify">Login With Discord</Nav.Link>} 
           </Nav>
         </Navbar.Collapse>
       </Container>
