@@ -10,8 +10,8 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  Build:
-    name: Build
+  Build_And_Test:
+    name: Build and Test
     runs-on: ubuntu-latest
     environment:
       name: 'Master'
