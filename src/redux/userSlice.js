@@ -4,8 +4,8 @@ const userSlice = createSlice({
     name: 'user',
     initialState: {
       username: localStorage.getItem('username'),
-      id: null,
-      avatar: null
+      id: localStorage.getItem('userId'),
+      avatar: localStorage.getItem('avatar')
     },
     reducers: {
       setUser: (state, action) => {
