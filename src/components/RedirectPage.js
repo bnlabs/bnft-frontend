@@ -10,7 +10,6 @@ const RedirectPage = () =>
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
     let Authorization;
-    // const dispatch = useDispatch();
     console.log("code: "+ code);
     const data = {
         "client_id": "1040068504826675251",
@@ -46,8 +45,10 @@ const RedirectPage = () =>
         .then((response) => {
             console.log(response.data);
             console.log("username: " + response.data.username);
-            dispatch(actions.setName({
-              username: response.data.username
+            dispatch(actions.setUser({
+              username: response.data.username,
+              id: response.data.id,
+              avatar: response.data.avatar
             }));
             localStorage.setItem("username", response.data.username);
             localStorage.setItem("userId", response.data.id);
