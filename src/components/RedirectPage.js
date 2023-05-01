@@ -1,10 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 import { Navigate } from 'react-router-dom';
+import { actions } from '../redux/userSlice';
+import { useDispatch } from 'react-redux';
 
 const RedirectPage = () => 
 {
-    // const [accessToken, setToken] = useState(null); // probably shouldnt have access token in useState
+    const dispatch = useDispatch();
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
     let Authorization;
@@ -44,6 +46,9 @@ const RedirectPage = () =>
         .then((response) => {
             console.log(response.data);
             console.log("username: " + response.data.username);
+            dispatch(actions.setName({
+              username: response.data.username
+            }));
             localStorage.setItem("username", response.data.username);
             localStorage.setItem("userId", response.data.id);
             localStorage.setItem("avatar", response.data.avatar);

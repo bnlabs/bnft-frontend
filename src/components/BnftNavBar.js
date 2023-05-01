@@ -6,11 +6,10 @@ import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
 const BnftNavBar = () => {
-  const { username } = useSelector((state) => state.user.username);
-
+  const username = useSelector((state) => state.user.username);
   useEffect(() => {
   }, [username]);
-
+  
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>

@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import RedirectPage from './components/RedirectPage.js';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
