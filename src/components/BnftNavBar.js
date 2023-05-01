@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 
 const BnftNavBar = () => {
   const username = useSelector((state) => state.user.username);
+
   useEffect(() => {
   }, [username]);
   
@@ -33,7 +34,7 @@ const BnftNavBar = () => {
             </NavDropdown>
           </Nav>
           <Nav>
-            {username==="" ? <Nav.Link >Welcome back {username}</Nav.Link> : 
+            {username!==null ? <Nav.Link >Welcome back {username}</Nav.Link> : 
               <Nav.Link href="https://discord.com/api/oauth2/authorize?client_id=1040068504826675251&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fredirect&response_type=code&scope=identify">Login With Discord</Nav.Link>} 
           </Nav>
         </Navbar.Collapse>
