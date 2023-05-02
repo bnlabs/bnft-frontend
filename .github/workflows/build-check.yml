@@ -26,6 +26,7 @@ jobs:
         webhook-url: ${{ secrets.WEBHOOK_URL }}
         content: "Running ${{ github.workflow }} pipeline, View <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}> for details"
         avatar-url: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+        embeded-url: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
     - name: Setup Node
       uses: actions/setup-node@v1
