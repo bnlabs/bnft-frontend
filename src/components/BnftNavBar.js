@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useSelector,useDispatch } from 'react-redux'; 
 import { actions } from '../redux/userSlice.js';
+import Button from 'react-bootstrap/Button';
 
 const BnftNavBar = () => {
   const dispatch = useDispatch();
@@ -39,10 +40,10 @@ const BnftNavBar = () => {
             </Nav>
             <Nav>
                 <div>
-                <Nav.Link >
+                <Nav.Link style={{ display: "inline-block", marginRight: "20px" }}>
                   Welcome back {username}
                 </Nav.Link>
-                <Nav.Link onClick={logout}>Logout</Nav.Link>
+                <Button onClick={logout} style={{ display: "inline-block" }}>Logout</Button>
                 </div>
             </Nav>
           </Navbar.Collapse>
