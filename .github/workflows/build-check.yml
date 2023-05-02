@@ -24,7 +24,7 @@ jobs:
       uses: tsickert/discord-webhook@v5.3.0
       with:
         webhook-url: ${{ secrets.WEBHOOK_URL }}
-        content: "Running Build and Test pipeline, View the <https://github.com/notbnft/${{ github.repository }}/actions/runs/${{ github.run_id }}> for details"
+        content: "Running Build and Test pipeline, View the <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}> for details"
         avatar-url: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
 
     - name: Setup Node
