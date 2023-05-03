@@ -24,12 +24,12 @@ jobs:
       uses: tsickert/discord-webhook@v5.3.0
       with:
         webhook-url: ${{ secrets.WEBHOOK_URL }}
-        content: "Running ${{ github.workflow }} pipeline, View <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}> for details"
+        # content: "Running ${{ github.workflow }} pipeline, View <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}> for details"
         avatar-url: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
         embed-title: "Running ${{ github.workflow }} pipeline"
         embeded-url: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
         embed-description: "description"
-        embed-color: 
+        embed-color: 1
 
     - name: Setup Node
       uses: actions/setup-node@v1
