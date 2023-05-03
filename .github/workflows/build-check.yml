@@ -29,7 +29,7 @@ jobs:
         embed-title: "Running ${{ github.workflow }} pipeline"
         embeded-url: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
         embed-description: "description"
-        embed-color: 2
+        embed-color: 5763719
 
     - name: Setup Node
       uses: actions/setup-node@v1
