@@ -30,7 +30,7 @@ jobs:
         embeded-url: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
         embed-description: "${{ github.event.pusher.name }} \n
                             ${{ github.event.head_commit.message }}"
-        embed-color: 5763719 # green
+        embed-color: 15105570 # orange
 
     - name: Setup Node
       uses: actions/setup-node@v1
