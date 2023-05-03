@@ -28,8 +28,9 @@ jobs:
         avatar-url: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
         embed-title: "Running ${{ github.workflow }} pipeline"
         embeded-url: "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-        embed-description: "description"
-        embed-color: 5763719
+        embed-description: "${{ github.event.pusher.name }} \n
+                            ${{ github.event.head_commit.message }}"
+        embed-color: 5763719 # green
 
     - name: Setup Node
       uses: actions/setup-node@v1
