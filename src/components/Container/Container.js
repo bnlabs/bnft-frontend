@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Button from './Button';
 import ResolutionSelection from './ResolutionSelection.js';
+import { ReactComponent as MyIcon } from '../../images/bnft.svg';
 
 const Container = styled.div`
   display: flex;
@@ -19,17 +20,18 @@ const Square = styled.div`
   justify-content: flex-start;
 `;
 
-const Image = styled.img`
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-`;
+// const Image = styled.img`
+//   width: 100%;
+//   height: auto;
+//   object-fit: cover;
+// `;
 
 const SquareImage = ({ src, alt }) => {
   return (
     <Container>
       <Square>
-        <Image src={src} alt={alt} />
+        {/* <Image src={src} alt={alt} /> */}
+        <MyIcon/>
         <ResolutionSelection/>
         <Button/>
       </Square>

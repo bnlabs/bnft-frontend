@@ -5,6 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useSelector,useDispatch } from 'react-redux'; 
 import { actions } from '../redux/userSlice.js';
 import Button from 'react-bootstrap/Button';
+import { ReactComponent as MyIcon } from '../images/bnft.svg';
 
 const BnftNavBar = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,10 @@ const BnftNavBar = () => {
     return <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="home">Bnft</Navbar.Brand>
+          <Navbar.Brand href="home">
+          <MyIcon style={{height:"6vh"}}/>
+            Bnft
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
@@ -54,7 +58,10 @@ const BnftNavBar = () => {
     return <>
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="home">Bnft</Navbar.Brand>
+        <Navbar.Brand href="home">
+          <MyIcon style={{height:"6vh", width: "6vh"}}/>
+          Bnft
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -83,4 +90,5 @@ const BnftNavBar = () => {
 }
 
 export default BnftNavBar;
+
 
