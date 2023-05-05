@@ -16,7 +16,7 @@ const shake = keyframes`
 `;
 
 const StyledButton = styled.button`
-  background-color: purple;
+  background-color: blue;
   color: white;
   border: none;
   padding: 8px 16px;
