@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { useSelector,useDispatch } from 'react-redux'; 
 import { actions } from '../redux/userSlice.js';
 import Button from 'react-bootstrap/Button';
-import { ReactComponent as MyIcon } from '../images/bnft.svg';
+import { ReactComponent as BnftLogo } from '../images/bnft.svg';
 
 const BnftNavBar = () => {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const BnftNavBar = () => {
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="home">
-          <MyIcon style={{height:"6vh", width: "6vh"}}/>
+          <BnftLogo style={{height:"6vh", width: "6vh"}}/>
             Bnft
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -45,7 +45,7 @@ const BnftNavBar = () => {
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="home">
-          <MyIcon style={{height:"6vh", width: "6vh"}}/>
+          <BnftLogo style={{height:"6vh", width: "6vh"}}/>
           Bnft
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
