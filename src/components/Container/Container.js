@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Button from './Button';
 import ResolutionSelection from './ResolutionSelection.js';
-import { ReactComponent as BnftLogo } from '../../images/bnft.svg';
+import BnftLogo from "../BnftLogo";
 
 const Container = styled.div`
   display: flex;
@@ -31,7 +31,7 @@ const SquareImage = ({ src, alt }) => {
     <Container>
       <Square>
         {/* <Image src={src} alt={alt} /> */}
-        <BnftLogo style={{height:"40vh", width: "40vh", padding: "3vh"}}/>
+        <BnftLogo length="40vh"/>
         <ResolutionSelection/>
         <Button/>
       </Square>
