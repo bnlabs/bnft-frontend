@@ -1,9 +1,9 @@
 import React from 'react';
 
-const BnftLogo = (length) => {
-    const color = "#2f81f7";
-    const outlineColor = "#161b22";
-    const actualLength = length.length;
+const BnftLogo = (props) => {
+    const color = props.color;
+    const outlineColor = props.outlineColor;
+    const actualLength = props.length;
     
     return <svg id="faa45733-e8c3-435b-8e1a-3a3072fd9b28" data-name="Fullhead" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80.20929 87.4342" height={actualLength} width={actualLength}>
         <title>cathead</title>

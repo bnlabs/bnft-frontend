@@ -15,12 +15,16 @@ const BnftNavBar = () => {
     console.log("logging out");
   };
 
+  const logolength = "6vh";
+  const logoColor = "#2f81f7";
+  const logoOutlineColor = "#161b22";
+
   if(username){
     return <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="home">
-          <BnftLogo length="6vh"/>
+          <BnftLogo length={logolength} color={logoColor} outlineColor={logoOutlineColor}/>
             <div>Bnft</div>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -45,7 +49,7 @@ const BnftNavBar = () => {
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="home">
-          <BnftLogo length="6vh"/>
+          <BnftLogo length={logolength} color={logoColor} outlineColor={logoOutlineColor}/>
           <div>Bnft</div>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

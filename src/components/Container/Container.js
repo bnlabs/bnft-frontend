@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Button from './Button';
 import ResolutionSelection from './ResolutionSelection.js';
 import BnftLogo from "../BnftLogo";
+import { useEffect } from "react";
+
+const SquareImage = () => {
+  const [insideColor, setInsideColor] = useState("#2f81f7");
+  const [outlineColor, setOutlineColor] = useState("#161b22");
+
+  useEffect( ()=> {
+
+  },[insideColor,outlineColor]);
+
+  const handleClick = () => {
+    console.log("clicked"); 
+
+    setInsideColor("red");
+    setOutlineColor("black");
+  };
+  
+  return (
+    <Container>
+      <Square>
+        <BnftLogo length="40vh" color={insideColor} outlineColor={outlineColor}/>
+        <ResolutionSelection/>
+        <Button func={() => handleClick()}/>
+      </Square>
+    </Container>
+  );
+};
 
 const Container = styled.div`
   display: flex;
@@ -19,21 +46,5 @@ const Square = styled.div`
   align-items: center;
   justify-content: flex-start;
 `;
-
-const SquareImage = () => {
-  const handleClick = () => {
-    console.log("clicked");
-  };
-  
-  return (
-    <Container>
-      <Square>
-        <BnftLogo length="40vh"/>
-        <ResolutionSelection/>
-        <Button func={() => handleClick()}/>
-      </Square>
-    </Container>
-  );
-};
 
 export default SquareImage;
