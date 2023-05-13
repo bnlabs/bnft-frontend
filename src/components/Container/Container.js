@@ -20,20 +20,17 @@ const Square = styled.div`
   justify-content: flex-start;
 `;
 
-// const Image = styled.img`
-//   width: 100%;
-//   height: auto;
-//   object-fit: cover;
-// `;
-
-const SquareImage = ({ src, alt }) => {
+const SquareImage = () => {
+  const handleClick = () => {
+    console.log("clicked");
+  };
+  
   return (
     <Container>
       <Square>
-        {/* <Image src={src} alt={alt} /> */}
         <BnftLogo length="40vh"/>
         <ResolutionSelection/>
-        <Button/>
+        <Button func={() => handleClick()}/>
       </Square>
     </Container>
   );

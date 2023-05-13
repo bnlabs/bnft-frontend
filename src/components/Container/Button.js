@@ -1,8 +1,9 @@
 import React from "react";
 import styled, { keyframes } from 'styled-components/macro';
 
-const Button = () => {
-    return <StyledButton onClick={()=>console.log("clicked")}>
+const Button = (props) => {
+  
+    return <StyledButton onClick={() => props.func()}>
         Generate
     </StyledButton>
 };
