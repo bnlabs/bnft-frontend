@@ -71,8 +71,8 @@ const SquareImage = () => {
           <BnftLogo id="downloadable-component" length="40vh" color={insideColor} outlineColor={outlineColor} bgColor={bgColor}/>
         </div>
         <ResolutionSelection/>
-        <Button content="Generate" color="blue" func={() => handleClick()}/>
-        <Button content="Download" color="green" func={() => exportAsImage(svgRef.current,"bnft")}/>
+        <Button content="Generate" color="#d3467b" func={() => handleClick()}/>
+        <Button content="Download" color="#b342cc" func={() => exportAsImage(svgRef.current,"bnft")}/>
         <Button content="Randomize" color="#9C77DE" func={() => handleRandomColor()}/>
         <ToggleButton func={() => setChangingColorToggle(!changingColorToggle)}/>
       </Square>
@@ -81,19 +81,24 @@ const SquareImage = () => {
 };
 
 const Container = styled.div`
+  padding: 2vh;
   display: flex;
   justify-content: center;
+  background: linear-gradient(to bottom, #393dac, #429ebd, transparent);
 `;
 
 const Square = styled.div`
   width: 70vh;
   height: 70vh;
   border-radius: 20px;
-  background-color: purple;
+  padding: 2vh;
+  background-color: #393dac;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  
 `;
 
 export default SquareImage;
