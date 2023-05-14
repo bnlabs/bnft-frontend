@@ -26,7 +26,7 @@ function randomColor() {
   return `#${hexColor}`;
 };
 
-const SquareImage = () => {
+const CatPicContainer = () => {
   const [insideColor, setInsideColor] = useState("#2f81f7");
   const [outlineColor, setOutlineColor] = useState("#161b22");
   const [bgColor, setBgColor] = useState("gray");
@@ -105,4 +105,4 @@ const Square = styled.div`
   
 `;
 
-export default SquareImage;
+export default CatPicContainer;

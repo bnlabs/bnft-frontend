@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import BnftNavBar from './BnftNavBar.js';
 import styled from 'styled-components/macro';
-import SquareImage from './CatPicGenerator/Container.js';
+import CatPicContainer from './CatPicGenerator/CatPicContainer.js';
 import { useSelector } from 'react-redux';
+import LoginContainer from './LoginSquare/LoginContainer.js';
 
 const HomePage = () =>
 {
@@ -20,12 +21,13 @@ const HomePage = () =>
   if(user.id != null){
     return <Parent>
       <BnftNavBar user={user}/>
-      <SquareImage/>
+      <CatPicContainer/>
     </Parent>
   }
   else{
     return <Parent>
         <BnftNavBar/>
+        <LoginContainer/>
       </Parent>
   };
 
