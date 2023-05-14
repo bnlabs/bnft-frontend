@@ -21,31 +21,36 @@ function getColor(index) {
   return "#" + data[index]['hex'];
 }
 
+let handleClick;
+
 const SquareImage = () => {
   const [insideColor, setInsideColor] = useState("#2f81f7");
   const [outlineColor, setOutlineColor] = useState("#161b22");
   const [bgColor, setBgColor] = useState("White");
   const userId = useSelector((state) => state.user.id);
 
-  const lastSixDigitsId = userId.substring(userId.length - 6);
+  if(userId){
+    const lastSixDigitsId = userId.substring(userId.length - 6);
 
-  const bgIndex = parseInt(lastSixDigitsId.substring(0, 2)); // first two digits
+    const bgIndex = parseInt(lastSixDigitsId.substring(0, 2)); // first two digits
 
-  const outlineIndex = parseInt(lastSixDigitsId.substring(2, 4)); // second and third digits
+    const outlineIndex = parseInt(lastSixDigitsId.substring(2, 4)); // second and third digits
 
-  const fillColorIndex = parseInt(lastSixDigitsId.substring(4, 6)); // last two digits
+    const fillColorIndex = parseInt(lastSixDigitsId.substring(4, 6)); // last two digits
 
-  useEffect( ()=> {
+    const handleClick = () => {
+      console.log("clicked"); 
 
-  },[insideColor,outlineColor]);
+      setBgColor(getColor(bgIndex));
+      setOutlineColor(getColor(outlineIndex));
+      setInsideColor(getColor(fillColorIndex));
+    };
+  }
 
-  const handleClick = () => {
-    console.log("clicked"); 
+  useEffect(()=> {
 
-    setBgColor(getColor(bgIndex));
-    setOutlineColor(getColor(outlineIndex));
-    setInsideColor(getColor(fillColorIndex));
-  };
+  },[insideColor, outlineColor, bgColor]);
+
   
   return (
     <Container>
