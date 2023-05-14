@@ -2,9 +2,12 @@ import React from "react";
 import styled, { keyframes } from 'styled-components/macro';
 
 const Button = (props) => {
-  
-    return <StyledButton onClick={() => props.func()}>
-        Generate
+  const styles = {
+    backgroundColor: props.color
+  };
+
+    return <StyledButton onClick={() => props.func() } style={styles}>
+        {props.content}
     </StyledButton>
 };
 

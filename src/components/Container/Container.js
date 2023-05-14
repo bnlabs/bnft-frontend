@@ -43,6 +43,10 @@ const SquareImage = () => {
     setInsideColor(getColor(fillColorIndex));
   };
 
+  const downloadPicture = () => {
+
+  };
+
   useEffect(()=> {
 
   },[insideColor, outlineColor, bgColor]);
@@ -53,7 +57,8 @@ const SquareImage = () => {
       <Square>
         <BnftLogo length="40vh" color={insideColor} outlineColor={outlineColor} bgColor={bgColor}/>
         <ResolutionSelection/>
-        <Button func={() => handleClick()}/>
+        <Button content="Generate" color="blue" func={() => handleClick()}/>
+        <Button content="Download" color="green" func={() => downloadPicture()}/>
       </Square>
     </Container>
   );

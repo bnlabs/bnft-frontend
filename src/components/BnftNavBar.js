@@ -29,14 +29,14 @@ const BnftNavBar = () => {
     return <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="home">
+          <Navbar.Brand href="/">
           <BnftLogo length={logolength} color={logoColor} outlineColor={logoOutlineColor}/>
             <div>Bnft</div>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="features">What is Bnft?</Nav.Link>
+              <Nav.Link>What is Bnft?</Nav.Link>
             </Nav>
             <Nav>
                 <div>
