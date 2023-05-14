@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import Button from './Button';
 import ResolutionSelection from './ResolutionSelection.js';
 import BnftLogo from "../BnftLogo";
 import { useSelector } from "react-redux";
 import data from '../../colors.json';
+import { exportAsImage } from "./ExportAsImage";
 
 function getColor(index) {
   // // Generate a random number between 0 and 16777215
@@ -25,6 +26,7 @@ const SquareImage = () => {
   const [insideColor, setInsideColor] = useState("#2f81f7");
   const [outlineColor, setOutlineColor] = useState("#161b22");
   const [bgColor, setBgColor] = useState("White");
+  const svgRef = useRef();
   const userId = useSelector((state) => state.user.id);
 
   const lastSixDigitsId = userId.substring(userId.length - 6);
@@ -43,10 +45,6 @@ const SquareImage = () => {
     setInsideColor(getColor(fillColorIndex));
   };
 
-  const downloadPicture = () => {
-
-  };
-
   useEffect(()=> {
 
   },[insideColor, outlineColor, bgColor]);
@@ -55,10 +53,12 @@ const SquareImage = () => {
   return (
     <Container>
       <Square>
-        <BnftLogo length="40vh" color={insideColor} outlineColor={outlineColor} bgColor={bgColor}/>
+        <div ref={svgRef}>
+          <BnftLogo id="downloadable-component" length="40vh" color={insideColor} outlineColor={outlineColor} bgColor={bgColor}/>
+        </div>
         <ResolutionSelection/>
         <Button content="Generate" color="blue" func={() => handleClick()}/>
-        <Button content="Download" color="green" func={() => downloadPicture()}/>
+        <Button content="Download" color="green" func={() => exportAsImage(svgRef.current,"test")}/>
       </Square>
     </Container>
   );
