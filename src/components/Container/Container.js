@@ -22,6 +22,17 @@ function getColor(index) {
   return "#" + data[index]['hex'];
 }
 
+function randomColor() {
+  // Generate a random number between 0 and 16777215
+  const randomColor = Math.floor(Math.random() * 16777215);
+
+  // Convert the number to a 6-digit hex string
+  const hexColor = randomColor.toString(16).padStart(6, '0');
+
+  // Return the hex color string with a leading '#' character
+  return `#${hexColor}`;
+}
+
 const SquareImage = () => {
   const [insideColor, setInsideColor] = useState("#2f81f7");
   const [outlineColor, setOutlineColor] = useState("#161b22");
@@ -38,12 +49,16 @@ const SquareImage = () => {
   const fillColorIndex = parseInt(lastSixDigitsId.substring(4, 6)); // last two digits
 
   const handleClick = () => {
-    console.log("clicked"); 
-
     setBgColor(getColor(bgIndex));
     setOutlineColor(getColor(outlineIndex));
     setInsideColor(getColor(fillColorIndex));
   };
+
+  const handleRandomColor = () =>{
+    setBgColor(randomColor(bgIndex));
+    setOutlineColor(randomColor(outlineIndex));
+    setInsideColor(randomColor(fillColorIndex));
+  }
 
   useEffect(()=> {
 
@@ -59,6 +74,7 @@ const SquareImage = () => {
         <ResolutionSelection/>
         <Button content="Generate" color="blue" func={() => handleClick()}/>
         <Button content="Download" color="green" func={() => exportAsImage(svgRef.current,"bnft")}/>
+        <Button content="Randomize" color="#9C77DE" func={() => handleRandomColor()}/>
       </Square>
     </Container>
   );
