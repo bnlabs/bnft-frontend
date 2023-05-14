@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import BnftNavBar from './BnftNavBar.js';
 import styled from 'styled-components/macro';
-import SquareImage from './Container/Container.js';
+import SquareImage from './CatPicGenerator/Container.js';
 import { useSelector } from 'react-redux';
 
 const HomePage = () =>
