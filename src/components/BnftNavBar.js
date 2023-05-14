@@ -20,6 +20,7 @@ const BnftNavBar = () => {
   const logolength = "6vh";
   const logoColor = "#2f81f7";
   const logoOutlineColor = "#161b22";
+  const logoBg = false;
 
   useEffect(() =>{
 
@@ -30,8 +31,8 @@ const BnftNavBar = () => {
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="/">
-          <BnftLogo length={logolength} color={logoColor} outlineColor={logoOutlineColor}/>
-            <div>Bnft</div>
+          <BnftLogo length={logolength} color={logoColor} outlineColor={logoOutlineColor} backgroundOn={logoBg}/>
+            {/* <div>Bnft</div> */}
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
@@ -55,8 +56,8 @@ const BnftNavBar = () => {
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="home">
-          <BnftLogo length={logolength} color={logoColor} outlineColor={logoOutlineColor}/>
-          <div>Bnft</div>
+          <BnftLogo length={logolength} color={logoColor} outlineColor={logoOutlineColor} backgroundOn={logoBg}/>
+          {/* <div>Bnft</div> */}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">

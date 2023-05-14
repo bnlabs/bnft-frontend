@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import data from '../../colors.json';
 import { exportAsImage } from "./ExportAsImage";
 import ToggleButton from "./ToggleButton.js";
+import downloadIcon from '../../images/icon-download.png';
 
 function getColor(index) {
   return "#" + data[index]['hex'];
@@ -26,7 +27,7 @@ function randomColor() {
 const SquareImage = () => {
   const [insideColor, setInsideColor] = useState("#2f81f7");
   const [outlineColor, setOutlineColor] = useState("#161b22");
-  const [bgColor, setBgColor] = useState("White");
+  const [bgColor, setBgColor] = useState("gray");
   const [changingColorToggle, setChangingColorToggle] = useState(false);
   const svgRef = useRef();
   const userId = useSelector((state) => state.user.id);
@@ -56,6 +57,7 @@ const SquareImage = () => {
       const timer = setTimeout(() => {
           setInsideColor(randomColor());
           setOutlineColor(randomColor());
+          setBgColor(randomColor());
         }, 500);
       
       return () => clearTimeout(timer);
@@ -68,12 +70,12 @@ const SquareImage = () => {
     <Container>
       <Square>
         <div ref={svgRef}>
-          <BnftLogo id="downloadable-component" length="40vh" color={insideColor} outlineColor={outlineColor} bgColor={bgColor}/>
+          <BnftLogo id="downloadable-component" length="40vh" color={insideColor} outlineColor={outlineColor} bgColor={bgColor} backgroundOn={true}/>
         </div>
         <ResolutionSelection/>
-        <Button content="Generate" color="#d3467b" func={() => handleClick()}/>
-        <Button content="Download" color="#b342cc" func={() => exportAsImage(svgRef.current,"bnft")}/>
-        <Button content="Randomize" color="#9C77DE" func={() => handleRandomColor()}/>
+        <Button content="Generate" color="#d3467b" image={downloadIcon} func={() => handleClick()}/>
+        <Button content="Download" color="#b342cc" image={downloadIcon} func={() => exportAsImage(svgRef.current,"bnft")}/>
+        <Button content="Randomize" color="#9C77DE" image={downloadIcon} func={() => handleRandomColor()}/>
         <ToggleButton func={() => setChangingColorToggle(!changingColorToggle)}/>
       </Square>
     </Container>

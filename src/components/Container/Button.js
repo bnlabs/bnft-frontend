@@ -8,6 +8,7 @@ const Button = (props) => {
 
     return <StyledButton onClick={() => props.func() } style={styles}>
         {props.content}
+        <StyledImage src={props.image} alt="button icon" />
     </StyledButton>
 };
 
@@ -23,6 +24,7 @@ const StyledButton = styled.button`
   background-color: blue;
   color: white;
   border: none;
+  border-radius: 2vh;
   padding: 8px 16px;
   font-size: 1rem;
   font-weight: bold;
@@ -34,5 +36,11 @@ const StyledButton = styled.button`
     animation: ${shake} 0.5s;
   }
 `;
+
+const StyledImage = styled.img`
+  height: 2vh;
+  width: 2vh;
+  padding: .2vh;
+`
 
 export default Button;
