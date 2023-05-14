@@ -6,21 +6,11 @@ import BnftLogo from "../BnftLogo";
 import { useSelector } from "react-redux";
 import data from '../../colors.json';
 import { exportAsImage } from "./ExportAsImage";
+import ToggleButton from "./ToggleButton.js";
 
 function getColor(index) {
-  // // Generate a random number between 0 and 16777215
-  // const randomColor = Math.floor(Math.random() * 16777215);
-
-  // // Convert the number to a 6-digit hex string
-  // const hexColor = randomColor.toString(16).padStart(6, '0');
-
-  // // Return the hex color string with a leading '#' character
-  // return `#${hexColor}`;
-
-  // console.log(data[index]['hex']);
-
   return "#" + data[index]['hex'];
-}
+};
 
 function randomColor() {
   // Generate a random number between 0 and 16777215
@@ -31,12 +21,13 @@ function randomColor() {
 
   // Return the hex color string with a leading '#' character
   return `#${hexColor}`;
-}
+};
 
 const SquareImage = () => {
   const [insideColor, setInsideColor] = useState("#2f81f7");
   const [outlineColor, setOutlineColor] = useState("#161b22");
   const [bgColor, setBgColor] = useState("White");
+  const [changingColorToggle, setChangingColorToggle] = useState(false);
   const svgRef = useRef();
   const userId = useSelector((state) => state.user.id);
 
@@ -61,8 +52,16 @@ const SquareImage = () => {
   }
 
   useEffect(()=> {
+    if(changingColorToggle){
+      const timer = setTimeout(() => {
+          setInsideColor(randomColor());
+          setOutlineColor(randomColor());
+        }, 500);
+      
+      return () => clearTimeout(timer);
+    }
+  },[insideColor, outlineColor, bgColor, changingColorToggle]);
 
-  },[insideColor, outlineColor, bgColor]);
 
   
   return (
@@ -75,6 +74,7 @@ const SquareImage = () => {
         <Button content="Generate" color="blue" func={() => handleClick()}/>
         <Button content="Download" color="green" func={() => exportAsImage(svgRef.current,"bnft")}/>
         <Button content="Randomize" color="#9C77DE" func={() => handleRandomColor()}/>
+        <ToggleButton func={() => setChangingColorToggle(!changingColorToggle)}/>
       </Square>
     </Container>
   );
