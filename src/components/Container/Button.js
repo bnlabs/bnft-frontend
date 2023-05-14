@@ -7,8 +7,8 @@ const Button = (props) => {
   };
 
     return <StyledButton onClick={() => props.func() } style={styles}>
-        {props.content}
         <StyledImage src={props.image} alt="button icon" />
+        {props.content}
     </StyledButton>
 };
 
@@ -39,8 +39,8 @@ const StyledButton = styled.button`
 
 const StyledImage = styled.img`
   height: 2vh;
-  width: 2vh;
-  padding: .2vh;
+  width: 3vh;
+  padding: .3vh;
 `
 
 export default Button;

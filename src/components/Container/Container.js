@@ -7,7 +7,9 @@ import { useSelector } from "react-redux";
 import data from '../../colors.json';
 import { exportAsImage } from "./ExportAsImage";
 import ToggleButton from "./ToggleButton.js";
-import downloadIcon from '../../images/icon-download.png';
+import downloadIcon from '../../images/download-icon.svg';
+import diceIcon from '../../images/dice.svg';
+import magicWand from '../../images/magic-wand.svg';
 
 function getColor(index) {
   return "#" + data[index]['hex'];
@@ -73,9 +75,9 @@ const SquareImage = () => {
           <BnftLogo id="downloadable-component" length="40vh" color={insideColor} outlineColor={outlineColor} bgColor={bgColor} backgroundOn={true}/>
         </div>
         <ResolutionSelection/>
-        <Button content="Generate" color="#d3467b" image={downloadIcon} func={() => handleClick()}/>
+        <Button content="Generate" color="#d3467b" image={magicWand} func={() => handleClick()}/>
         <Button content="Download" color="#b342cc" image={downloadIcon} func={() => exportAsImage(svgRef.current,"bnft")}/>
-        <Button content="Randomize" color="#9C77DE" image={downloadIcon} func={() => handleRandomColor()}/>
+        <Button content="Randomize" color="#9C77DE" image={diceIcon} func={() => handleRandomColor()}/>
         <ToggleButton func={() => setChangingColorToggle(!changingColorToggle)}/>
       </Square>
     </Container>
