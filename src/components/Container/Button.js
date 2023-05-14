@@ -28,6 +28,7 @@ const StyledButton = styled.button`
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  margin: 0.5vh;
 
   &:hover {
     animation: ${shake} 0.5s;
