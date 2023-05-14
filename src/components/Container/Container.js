@@ -58,7 +58,7 @@ const SquareImage = () => {
         </div>
         <ResolutionSelection/>
         <Button content="Generate" color="blue" func={() => handleClick()}/>
-        <Button content="Download" color="green" func={() => exportAsImage(svgRef.current,"test")}/>
+        <Button content="Download" color="green" func={() => exportAsImage(svgRef.current,"bnft")}/>
       </Square>
     </Container>
   );
