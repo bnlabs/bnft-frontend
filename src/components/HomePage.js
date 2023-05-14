@@ -1,24 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import BnftNavBar from './BnftNavBar.js';
 import styled from 'styled-components/macro';
 import SquareImage from './Container/Container.js';
+import { useSelector } from 'react-redux';
 
 const HomePage = () =>
 {
-  const [user, setUser] = useState(null);
+  const user = useSelector((state) => state.user);
   useEffect(() => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const dataParam = urlParams.get('user');
-      if (dataParam) {
-        setUser(JSON.parse(dataParam));
-      }
-    }, []);
+      // const urlParams = new URLSearchParams(window.location.search);
+      // const dataParam = urlParams.get('user');
+      // if (dataParam) {
+      //   setUser(JSON.parse(dataParam));
+      // }
 
-  return <Parent>
+    }, [user.id]);
+  
+  console.log("is logged in: " + (user.id != null));
+  if(user.id != null){
+    return <Parent>
       <BnftNavBar user={user}/>
-      <SquareImage src={('https://cdn.discordapp.com/attachments/835698638788362250/1099526793406460056/Artboard_5.png')} alt={"bnft-logo"}/>
-  </Parent>
-}
+      <SquareImage/>
+    </Parent>
+  }
+  else{
+    return <Parent>
+        <BnftNavBar/>
+      </Parent>
+  };
+
+};
 
 const Parent =  styled.div`
   background-image: url('https://www.pixelstalk.net/wp-content/uploads/images6/1440p-Wallpaper-Desktop.jpg');

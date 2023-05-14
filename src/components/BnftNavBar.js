@@ -5,9 +5,11 @@ import { useSelector,useDispatch } from 'react-redux';
 import { actions } from '../redux/userSlice.js';
 import Button from 'react-bootstrap/Button';
 import BnftLogo from './BnftLogo.js';
+import { useEffect } from 'react';
 
 const BnftNavBar = () => {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.username);
   const username = useSelector((state) => state.user.username);
   const logout = () => {
     dispatch(actions.setUser({}));
@@ -18,6 +20,10 @@ const BnftNavBar = () => {
   const logolength = "6vh";
   const logoColor = "#2f81f7";
   const logoOutlineColor = "#161b22";
+
+  useEffect(() =>{
+
+  },[user]);
 
   if(username){
     return <>
