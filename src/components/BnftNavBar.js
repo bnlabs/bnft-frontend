@@ -42,7 +42,7 @@ const BnftNavBar = () => {
             <Nav>
                 <div>
                 <Nav.Link style={{ display: "inline-block", marginRight: "20px" }}>
-                  Welcome back {username}
+                  Welcome back, {username}
                 </Nav.Link>
                 <Button onClick={logout} style={{ display: "inline-block" }}>Logout</Button>
                 </div>

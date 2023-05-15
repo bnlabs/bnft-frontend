@@ -33,8 +33,14 @@ const HomePage = () =>
 
 };
 
+
+
+
+// https://www.pixelstalk.net/wp-content/uploads/images6/1440p-Wallpaper-Desktop.jpg
+// https://cdn.discordapp.com/attachments/816329783846633493/1107475128683593771/Artboard_5.png
 const Parent =  styled.div`
-  background-image: url('https://www.pixelstalk.net/wp-content/uploads/images6/1440p-Wallpaper-Desktop.jpg');
+  background: url('https://www.pixelstalk.net/wp-content/uploads/images6/1440p-Wallpaper-Desktop.jpg');
+  background-color: black;
   background-size: cover;
   background-position: center;
   height: 100vh;
