@@ -71,7 +71,7 @@ const BnftNavBar = () => {
       </Container>
     </Navbar></>
   }
-}
+};
 
 export default BnftNavBar;
 
