@@ -49,7 +49,7 @@ const BackGroundImage = styled.div`
   background-image: url("https://cdn.discordapp.com/attachments/835698638788362250/1107792052973994004/background.png");
   background-repeat: repeat;
   background-color: rgba(0, 0, 0, 0.1); /* Adjust the opacity as needed */
-  // filter: blur(10px);
+  filter: blur(5px);
 `;
 
 

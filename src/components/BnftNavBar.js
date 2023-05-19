@@ -6,6 +6,7 @@ import { actions } from '../redux/userSlice.js';
 import Button from 'react-bootstrap/Button';
 import BnftLogo from './BnftLogo.js';
 import { useEffect } from 'react';
+import styled from 'styled-components';
 
 const BnftNavBar = () => {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const BnftNavBar = () => {
 
   if(username){
     return <>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <StyledNavbar collapseOnSelect expand="lg" >
         <Container>
           <Navbar.Brand href="/">
           <BnftLogo length={logolength} color={logoColor} outlineColor={logoOutlineColor} backgroundOn={logoBg}/>
@@ -37,23 +38,29 @@ const BnftNavBar = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link>What is Bnft?</Nav.Link>
+              <Nav.Link>
+                <StyledDiv>
+                  What is Bnft?
+                </StyledDiv>
+              </Nav.Link>
             </Nav>
             <Nav>
                 <div>
                 <Nav.Link style={{ display: "inline-block", marginRight: "20px" }}>
+                  <StyledDiv>
                   Welcome back, {username}
+                  </StyledDiv>
                 </Nav.Link>
                 <Button onClick={logout} style={{ display: "inline-block" }}>Logout</Button>
                 </div>
             </Nav>
           </Navbar.Collapse>
         </Container>
-      </Navbar></>
+      </StyledNavbar></>
   }
   else{
     return <>
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <StyledNavbar collapseOnSelect expand="lg">
       <Container>
         <Navbar.Brand href="home">
           <BnftLogo length={logolength} color={logoColor} outlineColor={logoOutlineColor} backgroundOn={logoBg}/>
@@ -69,9 +76,19 @@ const BnftNavBar = () => {
           </Nav>
         </Navbar.Collapse>
       </Container>
-    </Navbar></>
+    </StyledNavbar></>
   }
 };
+
+const StyledNavbar = styled(Navbar)`
+    background-color: #2E3440;
+`;
+
+const StyledDiv = styled.div`
+  font-family: "Verdana", Times, serif;
+  font-weight: 1000;
+  color: white;
+`;
 
 export default BnftNavBar;
 

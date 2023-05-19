@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import Button from './Button';
-import ResolutionSelection from './ResolutionSelection.js';
+// import ResolutionSelection from './ResolutionSelection.js';
 import BnftLogo from "../BnftLogo";
 import { useSelector } from "react-redux";
 import data from '../../colors.json';
@@ -75,10 +75,10 @@ const CatPicContainer = () => {
           <div ref={svgRef}>
             <BnftLogo id="downloadable-component" length="40vh" color={insideColor} outlineColor={outlineColor} bgColor={bgColor} backgroundOn={true}/>
           </div>
-          <ResolutionSelection/>
-          <Button content="Generate" color="#d3467b" image={magicWand} func={() => handleClick()}/>
-          <Button content="Download" color="#b342cc" image={downloadIcon} func={() => exportAsImage(svgRef.current,"bnft")}/>
-          <Button content="Randomize" color="#9C77DE" image={diceIcon} func={() => handleRandomColor()}/>
+          {/* <ResolutionSelection/> */}
+          <Button content="Generate" color="#5a39d0" image={magicWand} func={() => handleClick()}/>
+          <Button content="Download" color="#006374" image={downloadIcon} func={() => exportAsImage(svgRef.current,"bnft")}/>
+          <Button content="Randomize" color="#2156c0" image={diceIcon} func={() => handleRandomColor()}/>
           <ToggleButton func={() => setChangingColorToggle(!changingColorToggle)}/>
       </Square>
     </Container>
@@ -90,7 +90,6 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   `;
-  // background: linear-gradient(to bottom, #393dac, #429ebd, transparent);
 
 
 
@@ -101,11 +100,11 @@ const BackGroundImage = styled.div`
   width: 100%;
   height: 100%;
   // background-color: #393dac;
-  filter: blur(4px);
+  filter: blur(3px);
   z-index: -1;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
-  
+  background-color: rgba(255, 255, 255, 0.1); /* Adjust the opacity as needed */
 `;
 
 const Square = styled.div`
