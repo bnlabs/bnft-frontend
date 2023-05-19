@@ -42,17 +42,16 @@ jobs:
       with:
         fetch-depth: 0
     
-    - name: Install Yarn
-      run: npm install --global yarn
-
-    - name: Intall dependencies
-      run: yarn install
+    - name: Install dependencies
+      run: |
+        curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
+        pnpm install
 
     - name: Build
-      run: yarn build
+      run: pnpm build
 
     - name: Run Unit Tests
-      run: yarn test
+      run: pnpm test
 
     - name: Notify Discord of Failure
       if: failure()
