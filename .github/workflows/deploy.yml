@@ -39,4 +39,4 @@ jobs:
         password: ${{ secrets.VPS_PASSWORD }}
         port: ${{ secrets.PORT }}
         source: build/*
-        target: root/var/www/html/
+        target: var/www/html/
