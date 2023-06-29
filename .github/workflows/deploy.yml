@@ -31,16 +31,6 @@ jobs:
     - name: Build
       run: pnpm build
 
-    - name: SSH into VPS
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.PROD_SSH_HOST }}
-        username: root
-        password: ${{ secrets.VPS_PASSWORD }}
-        script: |
-          scp -r /build/* root@your_server_ip:/path/on/vps
-
-
     - name: Transfer files via SFTP
       run: |
         echo "put /build/* /var/www/html/" > sftp_commands.txt
