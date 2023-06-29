@@ -31,12 +31,22 @@ jobs:
     - name: Build
       run: pnpm build
 
-    - name: copy file via ssh password
-      uses: appleboy/scp-action@v0.1.4
+    - name: SSH into VPS
+      uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.PROD_SSH_HOST }}
         username: root
         password: ${{ secrets.VPS_PASSWORD }}
-        port: ${{ secrets.PORT }}
-        source: build/*
-        target: var/www/html/
+        script: |
+          scp -r /build/* root@your_server_ip:/path/on/vps
+
+
+    - name: Transfer files via SFTP
+      run: |
+        echo "put /build/* /var/www/html/" > sftp_commands.txt
+        sftp -b sftp_commands.txt username@your_server_ip
+      env:
+        username: root
+        your_server_ip: ${{ secrets.PROD_SSH_HOST }}
+
+
