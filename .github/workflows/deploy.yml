@@ -34,7 +34,7 @@ jobs:
     - name: Transfer files via SFTP
       run: |
         echo "put /build/* /var/www/html/" > sftp_commands.txt
-        sftp -b sftp_commands.txt username@your_server_ip
+        sftp -b sftp_commands.txt root@149.28.234.53
       env:
         username: root
         your_server_ip: ${{ secrets.PROD_SSH_HOST }}
