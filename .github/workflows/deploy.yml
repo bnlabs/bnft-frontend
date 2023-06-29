@@ -1,11 +1,10 @@
-name: Build and Test
+name: Deploy
 
 on: 
   workflow_dispatch:
 
 jobs:
   Deploy:
-    name: Build and Test
     runs-on: ubuntu-latest
     environment:
       name: 'Master'
