@@ -1,19 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import Button from './Button';
-// import ResolutionSelection from './ResolutionSelection.js';
 import BnftLogo from "../BnftLogo";
-import { useSelector } from "react-redux";
-import data from '../../colors.json';
 import { exportAsImage } from "./ExportAsImage";
 import ToggleButton from "./ToggleButton.js";
 import downloadIcon from '../../images/download-icon.svg';
 import diceIcon from '../../images/dice.svg';
-import magicWand from '../../images/magic-wand.svg';
 
-function getColor(index) {
-  return "#" + data[index]['hex'];
-};
+
 
 function randomColor() {
   // Generate a random number between 0 and 16777215
@@ -32,21 +26,12 @@ const CatPicContainer = () => {
   const [bgColor, setBgColor] = useState("gray");
   const [changingColorToggle, setChangingColorToggle] = useState(false);
   const svgRef = useRef();
-  const userId = useSelector((state) => state.user.id);
 
-  const lastSixDigitsId = userId.substring(userId.length - 6);
+  const bgIndex = 22 // first two digits
 
-  const bgIndex = parseInt(lastSixDigitsId.substring(0, 2)); // first two digits
+  const outlineIndex = 11 // second and third digits
 
-  const outlineIndex = parseInt(lastSixDigitsId.substring(2, 4)); // second and third digits
-
-  const fillColorIndex = parseInt(lastSixDigitsId.substring(4, 6)); // last two digits
-
-  const handleClick = () => {
-    setBgColor(getColor(bgIndex));
-    setOutlineColor(getColor(outlineIndex));
-    setInsideColor(getColor(fillColorIndex));
-  };
+  const fillColorIndex = 33 // last two digits
 
   const handleRandomColor = () =>{
     setBgColor(randomColor(bgIndex));
@@ -75,8 +60,6 @@ const CatPicContainer = () => {
           <div ref={svgRef}>
             <BnftLogo id="downloadable-component" length="40vh" color={insideColor} outlineColor={outlineColor} bgColor={bgColor} backgroundOn={true}/>
           </div>
-          {/* <ResolutionSelection/> */}
-          <Button content="Generate" color="#5a39d0" image={magicWand} func={() => handleClick()}/>
           <Button content="Download" color="#006374" image={downloadIcon} func={() => exportAsImage(svgRef.current,"bnft")}/>
           <Button content="Randomize" color="#2156c0" image={diceIcon} func={() => handleRandomColor()}/>
           <ToggleButton func={() => setChangingColorToggle(!changingColorToggle)}/>

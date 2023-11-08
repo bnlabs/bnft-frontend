@@ -29,14 +29,16 @@ jobs:
         pnpm install
 
     - name: Build
-      run: pnpm build
+      run: pnpm run build
 
-    - name: Transfer files via SFTP
-      run: |
-        echo "put /build/* /var/www/html/" > sftp_commands.txt
-        sftp -b sftp_commands.txt root@149.28.234.53
-      env:
-        username: root
-        your_server_ip: ${{ secrets.PROD_SSH_HOST }}
+    # - name: copy file via ssh password
+    #   uses: appleboy/scp-action@v0.1.4
+    #   with:
+    #     host: ${{ secrets.PROD_SSH_HOST }}
+    #     username: root
+    #     password: ${{ secrets.VPS_PASSWORD }}
+    #     port: ${{ secrets.PORT }}
+    #     source: build/
+    #     target: var/www/html/
 
 

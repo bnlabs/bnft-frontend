@@ -3,22 +3,16 @@ import BnftNavBar from './BnftNavBar.js';
 import styled from 'styled-components/macro';
 import CatPicContainer from './CatPicGenerator/CatPicContainer.js';
 import { useSelector } from 'react-redux';
-import LoginContainer from './LoginSquare/LoginContainer.js';
 
 const HomePage = () =>
 {
   const user = useSelector((state) => state.user);
   useEffect(() => {
-      // const urlParams = new URLSearchParams(window.location.search);
-      // const dataParam = urlParams.get('user');
-      // if (dataParam) {
-      //   setUser(JSON.parse(dataParam));
-      // }
 
-    }, [user.id]);
+    }, []);
   
-  console.log("is logged in: " + (user.id != null));
-  if(user.id != null){
+
+  if(true){
     return <>
         <BackGroundImage/>
         <Parent>
@@ -27,15 +21,6 @@ const HomePage = () =>
         </Parent>
     </>
   }
-  else{
-    return <>
-        <BackGroundImage/>
-        <Parent>
-        <BnftNavBar/>
-        <LoginContainer/>
-        </Parent>
-      </>
-  };
 
 };
 
