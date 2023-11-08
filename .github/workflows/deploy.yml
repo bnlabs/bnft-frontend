@@ -31,14 +31,14 @@ jobs:
     - name: Build
       run: pnpm run build
 
-    # - name: copy file via ssh password
-    #   uses: appleboy/scp-action@v0.1.4
-    #   with:
-    #     host: ${{ secrets.PROD_SSH_HOST }}
-    #     username: root
-    #     password: ${{ secrets.VPS_PASSWORD }}
-    #     port: ${{ secrets.PORT }}
-    #     source: build/
-    #     target: var/www/html/
+    - name: Install SSH Key
+      uses: shimataro/ssh-key-action@v2.5.1
+      with:
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        known_hosts: ${{ secrets.KNOWN_HOSTS }}
+
+    - name: Copy build directory to server
+      run: |
+        rsync -av --delete ./build/ ${{ secrets.PROD_SSH_USER }}@${{ secrets.PROD_SSH_HOST }}:/home/kevin/bnft/
 
 
