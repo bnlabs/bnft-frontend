@@ -40,7 +40,7 @@ const BnftNavBar = () => {
             <Nav className="me-auto">
               <Nav.Link>
                 <StyledDiv>
-                  What is Bnft?
+                  {/* What is Bnft? */}
                 </StyledDiv>
               </Nav.Link>
             </Nav>
@@ -69,11 +69,11 @@ const BnftNavBar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="features">What is Bnft?</Nav.Link>
+            {/* <Nav.Link href="features">What is Bnft?</Nav.Link> */}
           </Nav>
-          <Nav>
+          {/* <Nav>
               <Nav.Link href="https://discord.com/api/oauth2/authorize?client_id=1040068504826675251&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fredirect&response_type=code&scope=identify">Login With Discord</Nav.Link>
-          </Nav>
+          </Nav> */}
         </Navbar.Collapse>
       </Container>
     </StyledNavbar></>
